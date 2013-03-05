@@ -1,9 +1,6 @@
-if (rootProject.hasProperty('include')) {
-  apply from: 'main.gradle'
-} else {
-  allprojects {
-    apply from: '../master/main.gradle'
-  }
+gradle.beforeProject { prj ->
+  println "BeforeProject: ${prj.name}"
+  apply from: '../master/main.gradle', to: prj
 }
 
 

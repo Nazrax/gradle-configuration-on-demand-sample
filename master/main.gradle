@@ -1,4 +1,7 @@
-println "Configuring ${project.name}"
+apply plugin: 'idea'
+apply plugin: 'java'
+
+println "Main: ${project.name}"
 
 task hi {
   doFirst {

@@ -1,3 +1,0 @@
-if (rootProject.hasProperty('include')) {
-  apply from: '../master/main.gradle'
-}
