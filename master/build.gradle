@@ -1,0 +1,9 @@
+if (rootProject.hasProperty('include')) {
+  apply from: 'main.gradle'
+} else {
+  allprojects {
+    apply from: '../master/main.gradle'
+  }
+}
+
+

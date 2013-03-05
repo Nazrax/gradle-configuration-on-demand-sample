@@ -1,0 +1,9 @@
+println "Configuring ${project.name}"
+
+task hi {
+  doFirst {
+    println "${project.name} says hi"
+  }
+}
+
+defaultTasks 'hi'
