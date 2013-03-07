@@ -1,6 +1,32 @@
+println "In master/build.gradle"
+
+rootProject.properties.each {k, v ->
+  if (k =~ /gradle.config/) {
+    println "build.gradle rootProject property: $k: $v"
+  }
+}
+
+System.properties.each {k, v ->
+  if (k =~ /gradle.config/) {
+    println "build.gradle System property: $k: $v"
+  }
+}
+
 gradle.beforeProject { prj ->
-  println "BeforeProject: ${prj.name}"
-  apply from: '../master/main.gradle', to: prj
+  configure(prj) {
+    apply plugin: 'idea'
+    apply plugin: 'java'
+
+    println "Configuring ${project.name}"
+
+    task hi {
+      doFirst {
+        println "${project.name} says hi"
+      }
+    }
+
+    defaultTasks 'hi'
+  }
 }
 
 
